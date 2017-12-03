@@ -16,6 +16,11 @@
             <artifactId>sdk</artifactId>
             <version>0.0.2-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+                <artifactId>mssql-jdbc</artifactId>
+                <version>6.2.1.jre8</version>
+        </dependency>
     </dependencies>
     <packaging>jar</packaging>
     <properties>

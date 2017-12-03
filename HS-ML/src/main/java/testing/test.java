@@ -5,6 +5,9 @@
  */
 package testing;
 
+import java.sql.DriverManager;
+import java.sql.*;
+
 /**
  *
  * @author Andres Lanzoni
@@ -12,5 +15,15 @@ package testing;
 public class test {
     public static void main (String a[]){
         
+        try {
+          String connectionUrl = "jdbc:sqlserver://;database=ml-hs;integratedSecurity=false;";
+          Connection c = DriverManager.getConnection(connectionUrl, "sa","admin");
+          System.out.println("Conectado.");
+        } 
+        catch (SQLException ex) 
+        {
+          System.out.println("Error.");
+          ex.printStackTrace();
+        }
     }
 }
