@@ -11,6 +11,8 @@ package hs.ml;
  */
 public class Configuracion {
     private static String base="";
+    private static String instancename="";
+    private static String databasename="";
     private static String username = "";
     private static String password = "";
 
@@ -18,6 +20,14 @@ public class Configuracion {
         return base;
     }
 
+    public static String getInstancename() {
+        return instancename;
+    }
+
+    public static String getDatabasename() {
+        return databasename;
+    }    
+    
     public static String getUsername() {
         return username;
     }
@@ -32,6 +42,8 @@ public class Configuracion {
         }
         IniFile ini = new IniFile(nameFile);
         base = ini.getParameters("base");
+        instancename = ini.getParameters("instancename");
+        databasename = ini.getParameters("databasename");
         username = ini.getParameters("username");
         password = ini.getParameters("password");        
     }
