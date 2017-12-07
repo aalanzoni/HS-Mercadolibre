@@ -12,14 +12,25 @@
     </repositories>
     <dependencies>
         <dependency>
-            <groupId>com.mercadolibre</groupId>
-            <artifactId>sdk</artifactId>
-            <version>0.0.2-SNAPSHOT</version>
+                <groupId>com.ning</groupId>
+                <artifactId>async-http-client</artifactId>
+                <version>1.7.4</version>
+        </dependency>
+        <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>2.2.2</version>
         </dependency>
         <dependency>
             <groupId>com.microsoft.sqlserver</groupId>
                 <artifactId>mssql-jdbc</artifactId>
                 <version>6.2.1.jre8</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.10</version>
+            <type>jar</type>
         </dependency>
     </dependencies>
     <packaging>jar</packaging>

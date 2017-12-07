@@ -15,14 +15,14 @@ import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.internal.StringMap;
-import com.mercadolibre.sdk.Meli;
-import com.mercadolibre.sdk.MeliException;
+import Meli.Meli;
+import Meli.MeliException;
 import com.ning.http.client.Response;
 
 public class SiteHandler {
 
-    private static final String ID_KEY = "id";// "4532553168555750"
-    private static final String NAME_KEY = "name"; // "CaVD3Vt6MEYMPcFH81TYxxm3ZPTzEjBK"
+    private static final String ID_KEY = "id";
+    private static final String NAME_KEY = "name";
     private final Meli meli;
 
     private static final SiteHandler instance = new SiteHandler();
