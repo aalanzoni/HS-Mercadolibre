@@ -7,6 +7,7 @@ package hs.ml;
 
 import java.math.BigDecimal;
 import java.sql.*;
+import java.util.LinkedList;
 
 /**
  *
@@ -82,27 +83,24 @@ public class DbHandler {
         }                
     }
     
-    public Object[] DbSelect(Connection c) throws SQLException{
-        Object[] resutl = null;
+    public LinkedList DbSelect(Connection c) throws SQLException{
+        LinkedList result = new LinkedList();
         try { 
             PreparedStatement stmt = c.prepareStatement("SELECT * FROM ITEM"); 
             stmt.execute(); 
             ResultSet rs = stmt.getResultSet();
-         
-            resutl[1] = rs.getInt(1);
-            resutl[2] = rs.getBigDecimal(2);
-            resutl[3] = rs.getBigDecimal(3);
-            resutl[4] = rs.getString(4);
-            resutl[5] = rs.getString(5);
-            resutl[6] = rs.getString(6);
-            resutl[7] = rs.getDouble(7);
-            resutl[8] = rs.getDouble(8);
-            resutl[9] = rs.getDouble(9);
-            resutl[10] = rs.getString(10);
-            resutl[11] = rs.getInt(11);
-            resutl[12] = rs.getInt(12);
-            resutl[13] = rs.getInt(13);
-            resutl[14] = rs.getString(14);                    
+            
+            while(rs.next()){
+                Item item = new Item (rs.getInt(1),        rs.getBigDecimal(2),
+                                      rs.getBigDecimal(3), rs.getString(4),
+                                      rs.getString(5),     rs.getString(6),
+                                      rs.getDouble(7),     rs.getDouble(8),
+                                      rs.getDouble(9),     rs.getString(10),
+                                      rs.getInt(11),       rs.getInt(12),
+                                      rs.getInt(13),       rs.getString(14)
+                                     );
+                result.add(item);               
+            }
 
             if (stmt != null) {
 		stmt.close();
@@ -111,11 +109,11 @@ public class DbHandler {
             if (c != null) {
 		c.close();
             }            
-            return resutl;
+            return result;
         } 
         catch (SQLException ex) 
         {
-            return resutl;          
+            return result;          
         }               
     }    
 }

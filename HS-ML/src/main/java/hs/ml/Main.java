@@ -18,18 +18,18 @@ public class Main {
     public static void main(String[] args) throws Exception {           
         Configuracion.setConf("./config.ini");
         
-        long user_id = 288530762;
-        String user_pass = "qatest3744";
-        
-        AppHandler appHandler = new AppHandler();               
-        String user_token = appHandler.getAccessToken();
-        
+        AppHandler appHandler = new AppHandler();
+        Meli app_Meli = appHandler.getMeli_App();
+        String user_token = app_Meli.getAccessToken();
+       
         //muestra los datos del usuario
-        Meli m = new Meli(user_id, user_pass, user_token);
 	FluentStringsMap params = new FluentStringsMap();
-	params.add("access_token", m.getAccessToken());
-	Response response = m.get("/users/me", params);
+	params.add("access_token", app_Meli.getAccessToken());
+	Response response = app_Meli.get("/users/me", params);
  
-        System.out.println(response.getResponseBody());         
+        System.out.println(response.getResponseBody()); 
+
+        //pone en venta un producto
+        
     }
 } 
