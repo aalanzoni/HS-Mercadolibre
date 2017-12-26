@@ -64,5 +64,42 @@ public class Item {
         this.stock_disponible_item = stock_disponible_item;
         this.garantia_item = garantia_item;
         this.idml_item = idml_item;
-    }    
+    } 
+
+    public String getIdml_item() {
+        return idml_item;
+    }
+
+    public void setIdml_item(String idml_item) {
+        this.idml_item = idml_item;
+    }
+    
+    
+    
+    public String PrepareItem(){
+        String body;
+        body = "{" + 
+               "\"title\":\"" + nombre_item + "\"," +
+               "\"category_id\":\"MLA3530\"," +      //categoria otros
+               "\"price\":" + precio_item + "," +
+               "\"currency_id\":\"ARS\"," + 
+               "\"available_quantity\":" + stock_item + "," +
+               "\"buying_mode\":\"buy_it_now\"," +   //compra inmediata
+               "\"listing_type_id\":\"gold_special\"," +     //publicacion gratuita
+               "\"condition\":\"new\"," +
+               "\"description\":\"" + descripcion_item + "\"," +
+               "\"video_id\":\"https://youtu.be/CvoSOHPJcX4\"," +
+               "\"warranty\":\"" + garantia_item + " months\"," +
+               "\"pictures\":[" +
+               "{\"source\":\"http://jewelrystoretraining.com/wp-content/uploads/2016/12/hot-item2.png\"}" +
+               "]}";
+        return body;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" + "empresa_id=" + empresa_id + ", cuit_item=" + cuit_item + ", codigo_item=" + codigo_item + ", nombre_item=" + nombre_item + ", descripcion_item=" + descripcion_item + ", categoria_item=" + categoria_item + ", precio_item=" + precio_item + ", precio_item2=" + precio_item2 + ", precio_item3=" + precio_item3 + ", moneda_item=" + moneda_item + ", stock_item=" + stock_item + ", stock_disponible_item=" + stock_disponible_item + ", garantia_item=" + garantia_item + ", idml_item=" + idml_item + '}';
+    }
+    
+    
 }

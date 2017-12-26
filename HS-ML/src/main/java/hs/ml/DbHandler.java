@@ -24,7 +24,7 @@ public class DbHandler {
             String user = Configuracion.getUsername();
             String pass = Configuracion.getPassword();
             
-            String connectionUrl = "jdbc:sqlserver://"+base +
+            String connectionUrl = "jdbc:sqlserver://"+ base +
                                    ";instanceName="+ instance +
                                    ";databaseName="+ baseName +  
                                    ";integratedSecurity=false;";
@@ -83,8 +83,8 @@ public class DbHandler {
         }                
     }
     
-    public LinkedList DbSelect(Connection c) throws SQLException{
-        LinkedList result = new LinkedList();
+    public LinkedList<Item>  DbSelect(Connection c) throws SQLException{
+        LinkedList<Item> result = new LinkedList<Item>();
         try { 
             PreparedStatement stmt = c.prepareStatement("SELECT * FROM ITEM"); 
             stmt.execute(); 
@@ -99,7 +99,7 @@ public class DbHandler {
                                       rs.getInt(11),       rs.getInt(12),
                                       rs.getInt(13),       rs.getString(14)
                                      );
-                result.add(item);               
+                result.add(item);
             }
 
             if (stmt != null) {
