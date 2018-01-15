@@ -5,7 +5,7 @@
  */
 package testing;
 
-import hs.ml.Configuracion;
+import Config.Configuracion;
 import java.math.BigDecimal;
 import java.sql.DriverManager;
 import java.sql.*;

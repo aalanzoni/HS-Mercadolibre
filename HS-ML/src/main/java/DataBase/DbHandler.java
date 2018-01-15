@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hs.ml;
+package DataBase;
 
+import Config.Configuracion;
+import hs.ml.Item;
 import java.math.BigDecimal;
 import java.sql.*;
 import java.util.LinkedList;
@@ -84,20 +86,22 @@ public class DbHandler {
     }
     
     public LinkedList<Item>  DbSelect(Connection c) throws SQLException{
-        LinkedList<Item> result = new LinkedList<Item>();
+        LinkedList<Item> result = new LinkedList<>();
         try { 
             PreparedStatement stmt = c.prepareStatement("SELECT * FROM ITEM"); 
             stmt.execute(); 
             ResultSet rs = stmt.getResultSet();
             
             while(rs.next()){
-                Item item = new Item (rs.getInt(1),        rs.getBigDecimal(2),
-                                      rs.getBigDecimal(3), rs.getString(4),
-                                      rs.getString(5),     rs.getString(6),
-                                      rs.getDouble(7),     rs.getDouble(8),
-                                      rs.getDouble(9),     rs.getString(10),
-                                      rs.getInt(11),       rs.getInt(12),
-                                      rs.getInt(13),       rs.getString(14)
+                Item item = new Item (rs.getString(1),  rs.getString(2),
+                                      rs.getString(3),  rs.getString(4),
+                                      rs.getDouble(5),  rs.getString(6),
+                                      rs.getInt(7),     rs.getString(8),
+                                      rs.getString(9),  rs.getString(10),
+                                      rs.getString(11), rs.getString(12),
+                                      rs.getInt(13),    rs.getString(14),
+                                      rs.getString(15), rs.getString(16),
+                                      rs.getString(17)
                                      );
                 result.add(item);
             }

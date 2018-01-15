@@ -4,7 +4,7 @@
  * and open the template in the editor.
  * Source https://stackoverflow.com/questions/16370688/javafx-textfield-eventhandler
  */
-package Browser;
+package Windows;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;

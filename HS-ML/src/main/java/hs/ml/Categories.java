@@ -7,23 +7,16 @@ package hs.ml;
 
 /**
  *
- * @author Andres Lanzoni
+ * @author Windows-7
  */
-public class Site {
-
+public class Categories {
     private final String id;
     private final String name;
-
-    public Site(final String id, final String name) {
+    private final Boolean leaf;
+            
+    public Categories(String id, String name, Boolean leaf){
         this.id = id;
         this.name = name;
-    }
-
-    @Override
-    public String toString() {
-        return "Site{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                '}';
-    }
+        this.leaf = leaf;
+    }   
 }
