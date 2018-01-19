@@ -85,7 +85,7 @@ public class DbHandler {
         }                
     }
     
-    public LinkedList<Item>  DbSelect(Connection c) throws SQLException{
+    public LinkedList<Item> DbSelect(Connection c) throws SQLException{
         LinkedList<Item> result = new LinkedList<>();
         try { 
             PreparedStatement stmt = c.prepareStatement("SELECT * FROM ITEM"); 
